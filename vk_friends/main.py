@@ -25,8 +25,8 @@ def get_friends(login, password):
 
 if __name__ == '__main__':
     start = time.time()
-    login_password = list(argparse_().values())
-    online_friends = get_friends(login_password[0], login_password[1])
+    login_password = argparse_()
+    online_friends = get_friends(login_password['login'], login_password['password'])
     print(online_friends)
     end = time.time()
     print('time =', end-start)
