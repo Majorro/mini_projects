@@ -23,6 +23,7 @@ def get_friends(login, password):
         users.append(object['first_name']+' '+object['last_name'])
     return users
 
+
 if __name__ == '__main__':
     start = time.time()
     login_password = list(argparse_().values())
