@@ -28,16 +28,27 @@ def get_trending_repositories(date):
 
 def get_issues(users):
     params = {
-
+        'state': 'open',
+        'sort': 'created',
+        'token': 'your_token'
     }
-    url = 'https://api.github.com/repos/{0}/issues'.format(users)
-    r = requests.get(url, params=params)
+    for user in users:
+        url = 'https://api.github.com/repos/{0}/issues'.format(user)
+        r = requests.get(url, params=params)
+        issues = r.json()
+        if len(issues) != 0:
+            print('\n', user.split('/')[1]+'\'s', 'issues = {0}'.format(len(issues)))
+            for issue in issues:
+                print('\t\tIssue: {0}'.format(issue['title']))
+        else:
+            print('\n', user.split('/')[1]+'\'s', 'issues = 0')
+
 
 if __name__ == '__main__':
     start = time.time()
     
     result = get_trending_repositories(shifted_date(7))
-    print(get_issues(result))
+    get_issues(result)
 
     end = time.time()
     print(end-start)
