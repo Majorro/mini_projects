@@ -1,1 +1,1 @@
-DON'T CHECK ANY FILES
+Some tutorial small projects
