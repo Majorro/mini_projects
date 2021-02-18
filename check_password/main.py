@@ -16,11 +16,11 @@ def open_file_and_check(filepath, password):
         with open(filepath) as data:
             for common_password in data:
                 if password == common_password.split('\n')[0]:
-                    print('YOUR PASSWORD IS SHIT')
+                    print('Your password is bad')
                     return 1
             return 0
     except FileNotFoundError:
-        print('Bad filepath, you bastard')
+        print('Wrong filepath')
 
 def scoring(password):
     pattern_up = r'[A-Z]'
@@ -46,7 +46,7 @@ def scoring(password):
         score += 3
     else:
         score += 4
-    print('safety of your password:', str(score)+'*')
+    print('Safety of your password:', str(score)+'*')
 
 
 
